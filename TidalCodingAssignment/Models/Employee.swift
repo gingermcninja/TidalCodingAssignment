@@ -11,5 +11,6 @@ struct Employee {
     let uuid: String?
     let full_name: String?
     let team: String?
+    let phone: String?
     let photo_url_small: String?
 }
