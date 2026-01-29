@@ -13,9 +13,25 @@ class ViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        employees.append(Employee(uuid: "1", full_name: "Paul", team: "Team", phone: "093 24366", photo_url_small: nil))
-        self.tableView.reloadData()
-        // Do any additional setup after loading the view.
+        Task {
+            await loadEmployees()
+        }
+    }
+    
+    private func loadEmployees() async {
+        do {
+            employees = try await NetworkManager.shared.fetchEmployees()
+            self.tableView.reloadData()
+        }
+        catch {
+            self.diaplayErrorAlert(error: error)
+        }
+    }
+    
+    func diaplayErrorAlert(error: Error) {
+        let alert = UIAlertController(title:"Error", message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title:"OK", style: .default, handler: nil))
+        present(alert, animated: false, completion: nil)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -32,10 +48,12 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 250
     }
-    
-    
 
-    
-    
+    @IBAction func refreshData(_ sender: UIRefreshControl) {
+        Task {
+            await loadEmployees()
+            sender.endRefreshing()
+        }
+    }
 }
 

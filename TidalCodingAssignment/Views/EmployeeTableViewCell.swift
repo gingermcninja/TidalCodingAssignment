@@ -13,7 +13,7 @@ class EmployeeTableViewCell: UITableViewCell {
         {
             nameLabel?.text = employee?.full_name
             teamLabel?.text = employee?.team
-            phoneLabel?.text = employee?.phone
+            phoneLabel?.text = employee?.phone_number
         }
     }
     
