@@ -7,10 +7,16 @@
 
 import Foundation
 
-struct Employee {
+nonisolated
+struct EmployeeResponse: Codable {
+    var employees: [Employee] = []
+}
+
+struct Employee: Codable, Identifiable {
+    var id: String { uuid ?? UUID().uuidString }
     let uuid: String?
     let full_name: String?
     let team: String?
-    let phone: String?
+    let phone_number: String?
     let photo_url_small: String?
 }

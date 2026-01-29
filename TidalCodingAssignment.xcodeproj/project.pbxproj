@@ -40,8 +40,8 @@
 		6950479D2F2C0A5500E36239 /* Exceptions for "TidalCodingAssignment" folder in "TidalCodingAssignmentTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				EmployeeTableViewCell.swift,
 				Models/Employee.swift,
+				Views/EmployeeTableViewCell.swift,
 			);
 			target = 695047642F2C05DB00E36239 /* TidalCodingAssignmentTests */;
 		};
