@@ -17,6 +17,18 @@ extension JSONDecoder {
 
 enum TidalAPIError: Error {
     case badResponse
+    case emptyResponse
+}
+
+extension TidalAPIError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .badResponse:
+            return NSLocalizedString("The server returned a bad response", comment: "Bad Response")
+        case .emptyResponse:
+            return NSLocalizedString("The server returned an empty response", comment: "Empty Response")
+        }
+    }
 }
 
 actor NetworkManager {
@@ -27,6 +39,7 @@ actor NetworkManager {
         let url = pageURL ?? baseUrl.appendingPathComponent("employees.json")
         let (data, response) = try await URLSession.shared.data(from: url)
         guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw TidalAPIError.badResponse }
+        guard data.count > 0 else { throw TidalAPIError.emptyResponse }
         return try await JSONDecoder.tidalapi.decode(EmployeeResponse.self, from: data).employees
         
     }
