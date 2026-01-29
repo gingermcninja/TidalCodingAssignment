@@ -37,6 +37,13 @@
 			);
 			target = 6950474E2F2C05DA00E36239 /* TidalCodingAssignment */;
 		};
+		6950479D2F2C0A5500E36239 /* Exceptions for "TidalCodingAssignment" folder in "TidalCodingAssignmentTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Models/Employee.swift,
+			);
+			target = 695047642F2C05DB00E36239 /* TidalCodingAssignmentTests */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -44,6 +51,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				695047772F2C05DB00E36239 /* Exceptions for "TidalCodingAssignment" folder in "TidalCodingAssignment" target */,
+				6950479D2F2C0A5500E36239 /* Exceptions for "TidalCodingAssignment" folder in "TidalCodingAssignmentTests" target */,
 			);
 			path = TidalCodingAssignment;
 			sourceTree = "<group>";
