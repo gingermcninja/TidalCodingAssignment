@@ -21,14 +21,17 @@ class ViewController: UITableViewController {
     private func loadEmployees() async {
         do {
             employees = try await NetworkManager.shared.fetchEmployees()
+            if employees.count == 0 {
+                self.displayErrorAlert(error: TidalAPIError.emptyResponse)
+            }
             self.tableView.reloadData()
         }
         catch {
-            self.diaplayErrorAlert(error: error)
+            self.displayErrorAlert(error: error)
         }
     }
     
-    func diaplayErrorAlert(error: Error) {
+    func displayErrorAlert(error: Error) {
         let alert = UIAlertController(title:"Error", message: error.localizedDescription, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title:"OK", style: .default, handler: nil))
         present(alert, animated: false, completion: nil)

@@ -28,7 +28,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="q4Z-Hw-KML"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -75,6 +75,7 @@
                                 <connections>
                                     <outlet property="nameLabel" destination="A65-zW-y4T" id="BY9-XI-oaT"/>
                                     <outlet property="phoneLabel" destination="78w-3B-m3N" id="aX8-s1-TiE"/>
+                                    <outlet property="photoImageView" destination="mNV-x1-5ri" id="PGa-k4-nx4"/>
                                     <outlet property="teamLabel" destination="Za3-c4-ruV" id="Bye-7P-l7y"/>
                                 </connections>
                             </tableViewCell>
