@@ -40,7 +40,9 @@ actor NetworkManager {
         let (data, response) = try await URLSession.shared.data(from: url)
         guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw TidalAPIError.badResponse }
         guard data.count > 0 else { throw TidalAPIError.emptyResponse }
-        return try await JSONDecoder.tidalapi.decode(EmployeeResponse.self, from: data).employees
+        let employees = try await JSONDecoder.tidalapi.decode(EmployeeResponse.self, from: data).employees
+        guard employees.count > 0 else { throw TidalAPIError.emptyResponse }
+        return employees
         
     }
 }

@@ -21,9 +21,6 @@ class ViewController: UITableViewController {
     private func loadEmployees() async {
         do {
             employees = try await NetworkManager.shared.fetchEmployees()
-            if employees.count == 0 {
-                self.displayErrorAlert(error: TidalAPIError.emptyResponse)
-            }
             self.tableView.reloadData()
         }
         catch {
