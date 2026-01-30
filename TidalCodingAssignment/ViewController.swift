@@ -28,6 +28,18 @@ class ViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if employees.count == 0 {
+            let label = UILabel()
+            label.text = "No employees found!"
+            label.textAlignment = .center
+            return label
+        }
+        else {
+            return nil
+        }
+    }
+    
     func displayErrorAlert(error: Error) {
         let alert = UIAlertController(title:"Error", message: error.localizedDescription, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title:"OK", style: .default, handler: nil))

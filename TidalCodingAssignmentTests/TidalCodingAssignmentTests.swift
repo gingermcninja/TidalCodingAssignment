@@ -74,9 +74,9 @@ class TidalCodingAssignmentTests {
             Issue.record("empty URL is not in valid URL format")
             return
         }
-        await #expect(throws: TidalAPIError.emptyResponse.self) {
-            let _ = try await networkManager.fetchEmployees(from: emptyURL)
-        }
+
+        let employees = try await networkManager.fetchEmployees(from: emptyURL)
+        #expect(employees.count == 0)
     }
     
     @MainActor @Test("Loads invalid URL")
