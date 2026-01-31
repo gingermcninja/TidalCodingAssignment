@@ -2,7 +2,7 @@
 Tidal take-home coding assignment
 
 ## Build tools & versions used
-This app was created using Xcode 26.2. I decided to use the Swift programming language with UIKit to handle the UI elements. I have experience with SwiftUI but I have far more professional experience with Storyboards. I also have experience coding in Objective-C but I prefer using Swift these days, I just find it easier to code in.
+This app was created using Xcode 26.2. I decided to use the Swift programming language with UIKit to handle the UI elements. I have experience with SwiftUI but I have far more professional experience with Storyboards. I also have experience coding in Objective-C but I prefer using Swift these days, I just find it easier to code in. I decided to use an MVC architecture for the sake of simplicity. MVVM has more extensibility for larger projects and is more conducive to unit testing but for a small project like this I feel MVC is just all round an easier way to go.
 
 ## Steps to run the app
 In order to run the app, merely open the TidalCodingAssignment.xcodeproj file in Xcode, select the TidalCodingAssignment target from the dropdown, select an appropriate simulator and press Run.
